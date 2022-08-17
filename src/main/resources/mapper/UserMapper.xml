@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yzh.mapper.UserMapper">
+    <update id="updateUser">
+        update product_purchase.user
+        SET username=#{user.username},
+            password=#{user.password},
+            avatar=#{user.avatar},
+            is_delete=0
+        WHERE phone = #{user.phone};
+    </update>
+    <select id="countByPhone" resultType="java.lang.Integer">
+        select count(*)
+        from product_purchase.user
+        where user.phone = #{phone};
+    </select>
+
+</mapper>
