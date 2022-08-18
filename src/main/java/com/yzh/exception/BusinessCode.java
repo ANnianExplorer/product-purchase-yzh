@@ -18,6 +18,8 @@ public enum BusinessCode {
 
     FILE_ERROR("文件异常"),
 
+    ASSESS_ERROR("评价异常")
+
     ;
 
     private final String message;

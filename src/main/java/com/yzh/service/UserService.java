@@ -2,12 +2,12 @@ package com.yzh.service;
 
 import com.yzh.domain.User;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.yzh.req.UserLoginReq;
-import com.yzh.req.UserQueryReq;
-import com.yzh.req.UserRegisterReq;
-import com.yzh.req.UserUpdateReq;
+import com.yzh.req.user.UserLoginReq;
+import com.yzh.req.user.UserQueryReq;
+import com.yzh.req.user.UserRegisterReq;
+import com.yzh.req.user.UserUpdateReq;
 import com.yzh.resp.PageResp;
-import com.yzh.resp.UserQueryResp;
+import com.yzh.resp.user.UserQueryResp;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;

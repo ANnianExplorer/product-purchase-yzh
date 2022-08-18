@@ -1,5 +1,6 @@
-package com.yzh.req;
+package com.yzh.req.user;
 
+import com.yzh.req.PageReq;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;

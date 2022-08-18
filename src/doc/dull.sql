@@ -11,3 +11,36 @@ create table user
     update_time datetime default CURRENT_TIMESTAMP ON UPDATE current_timestamp comment '修改时间',
     is_delete tinyint default 0 comment '逻辑删除字段：0 未删除，1 删除'
 )engine = innodb default charset = utf8mb4 comment '用户表';
+
+create table product
+(
+    product_id bigint primary key comment '商品id',
+    product_name varchar(50) comment '商品名称',
+    product_picture text not null comment '如果上传了图片，则使用；如果没传，则默认',
+    product_des varchar(512) comment '商品介绍',
+    product_price varchar(200) comment '商品价格',
+    create_time datetime default CURRENT_TIMESTAMP comment '创建时间',
+    update_time datetime default CURRENT_TIMESTAMP ON UPDATE current_timestamp comment '修改时间',
+    is_delete tinyint default 0 comment '逻辑删除字段：0 未删除，1 删除'
+)engine = innodb default charset = utf8mb4 comment '商品表';
+
+create table assess
+(
+    assess_id bigint primary key comment '评价id',
+    user_id bigint not null comment '用户id',
+    assess_content varchar(200) default '该商品暂无评价' comment '评价内容',
+    create_time datetime default CURRENT_TIMESTAMP comment '创建时间',
+    update_time datetime default CURRENT_TIMESTAMP ON UPDATE current_timestamp comment '修改时间',
+    is_delete tinyint default 0 comment '逻辑删除字段：0 未删除，1 删除'
+)engine = innodb default charset = utf8mb4 comment '评价表';
+
+create table product_assess
+(
+    record_id bigint primary key comment '商品和评价的中间表id',
+    product_id bigint not null comment '商品id',
+    assess_id bigint not null comment '评价id',
+    assess_content varchar(200) default '该商品暂无评价' comment '评价内容',
+    create_time datetime default CURRENT_TIMESTAMP comment '创建时间',
+    update_time datetime default CURRENT_TIMESTAMP ON UPDATE current_timestamp comment '修改时间',
+    is_delete tinyint default 0 comment '逻辑删除字段：0 未删除，1 删除'
+)engine = innodb default charset = utf8mb4 comment '商品和评价的中间表';

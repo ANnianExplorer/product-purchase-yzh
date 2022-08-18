@@ -8,12 +8,12 @@ import com.yzh.domain.User;
 import com.yzh.exception.BusinessCode;
 import com.yzh.exception.BusinessException;
 import com.yzh.mapper.UserMapper;
-import com.yzh.req.UserLoginReq;
-import com.yzh.req.UserQueryReq;
-import com.yzh.req.UserRegisterReq;
-import com.yzh.req.UserUpdateReq;
+import com.yzh.req.user.UserLoginReq;
+import com.yzh.req.user.UserQueryReq;
+import com.yzh.req.user.UserRegisterReq;
+import com.yzh.req.user.UserUpdateReq;
 import com.yzh.resp.PageResp;
-import com.yzh.resp.UserQueryResp;
+import com.yzh.resp.user.UserQueryResp;
 import com.yzh.service.CommonService;
 import com.yzh.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -22,7 +22,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.method.HandlerMethod;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -121,7 +120,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      * 查询所有
      *
      * @param req     要求事情
-     * @param session 会话
      * @return {@link PageResp}<{@link UserQueryResp}>
      */
     @Override
