@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -24,6 +25,9 @@ public class ProductQueryResp implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @ApiModelProperty(value = "商品id")
+    private Long productId;
+
     @ApiModelProperty(value = "商品名称")
     private String productName;
 
@@ -35,6 +39,9 @@ public class ProductQueryResp implements Serializable {
 
     @ApiModelProperty(value = "商品价格")
     private String productPrice;
+
+    @ApiModelProperty(value = "商品产地")
+    private String productAddress;
 
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;

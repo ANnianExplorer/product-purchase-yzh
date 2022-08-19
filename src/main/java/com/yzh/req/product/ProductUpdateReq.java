@@ -1,31 +1,31 @@
-package com.yzh.domain;
+package com.yzh.req.product;
 
-import java.time.LocalDateTime;
-import java.io.Serializable;
-
-import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.io.Serial;
+import java.io.Serializable;
+
 /**
- * <p>
- * 商品表
- * </p>
+ * 产品更新要求
  *
- * @author 杨振华
- * @since 2022-08-19
+ * @author yzh
+ * @since 2022/8/19
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="Product对象", description="商品表")
-public class Product implements Serializable {
+@ApiModel(value="ProductUpdateReq对象", description="商品表")
+public class ProductUpdateReq implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "商品id")
-    @TableId
+    @NotNull(message = "商品id不能为空")
     private Long productId;
 
     @ApiModelProperty(value = "商品名称")
@@ -42,15 +42,4 @@ public class Product implements Serializable {
 
     @ApiModelProperty(value = "商品产地")
     private String productAddress;
-
-    @ApiModelProperty(value = "创建时间")
-    private LocalDateTime createTime;
-
-    @ApiModelProperty(value = "修改时间")
-    private LocalDateTime updateTime;
-
-    @ApiModelProperty(value = "逻辑删除字段：0 未删除，1 删除")
-    private Integer isDelete;
-
-
 }

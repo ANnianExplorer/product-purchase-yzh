@@ -14,6 +14,7 @@ import com.yzh.mapper.AssessMapper;
 import com.yzh.mapper.ProductAssessMapper;
 import com.yzh.mapper.ProductMapper;
 import com.yzh.mapper.UserMapper;
+import com.yzh.req.assess.DeleteAssessReq;
 import com.yzh.req.assess.QueryAssessReq;
 import com.yzh.req.assess.UpdateAssessReq;
 import com.yzh.req.assess.saveAssessReq;
@@ -159,6 +160,28 @@ public class AssessServiceImpl extends ServiceImpl<AssessMapper, Assess> impleme
     @Override
     public void deleteAssess(List<Long> ids) {
         this.removeByIds(ids);
+    }
+
+    /**
+     * 删除用户评估
+     *
+     * @param session 会话
+     * @param req     要求事情
+     */
+    @Override
+    public void deleteUserAssess(DeleteAssessReq req, HttpSession session) {
+        User sessionUser = (User) session.getAttribute(SESSION_KEYWORDS);
+
+        List<Long> assessIds = req.getAssessIds();
+        for (Long assessId : assessIds) {
+            Assess assess = assessMapper.selectById(assessId);
+            Long userId = assess.getUserId();
+            log.info("userId is :{}",userId);
+            if (userId.equals(sessionUser.getUserId())){
+                assessMapper.deleteUserAssess(assessId);
+                productAssessMapper.deleteUserAssess(assessId);
+            }
+        }
     }
 
     /**

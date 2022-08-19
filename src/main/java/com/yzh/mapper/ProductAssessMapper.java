@@ -14,4 +14,6 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface ProductAssessMapper extends BaseMapper<ProductAssess> {
     void updateAssessContent(@Param("productId") Long productId,@Param("assessContent") String assessContent);
+
+    void deleteUserAssess(@Param("assessId") Long assessId);
 }

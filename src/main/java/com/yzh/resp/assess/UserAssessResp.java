@@ -20,8 +20,4 @@ public class UserAssessResp implements Serializable {
 
     @ApiModelProperty(value = "如果用户传入头像，则用用户的；如果没传，则默认")
     private String avatar;
-
-    @ApiModelProperty(value = "用户介绍")
-    private String description;
-
 }

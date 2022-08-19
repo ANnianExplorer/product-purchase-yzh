@@ -2,6 +2,7 @@ package com.yzh.mapper;
 
 import com.yzh.domain.Assess;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -12,5 +13,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2022-08-18
  */
 public interface AssessMapper extends BaseMapper<Assess> {
-
+    void deleteUserAssess(@Param("assessId") Long assessId);
 }

@@ -5,9 +5,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.jetbrains.annotations.NotNull;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -24,7 +24,7 @@ public class saveAssessReq implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "商品id")
-    @NotBlank(message = "商品id不能为空")
+    @NotNull(message = "商品id不能为空")
     private Long productId;
 
     @ApiModelProperty(value = "评价内容")

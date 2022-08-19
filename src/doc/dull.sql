@@ -17,8 +17,9 @@ create table product
     product_id bigint primary key comment '商品id',
     product_name varchar(50) comment '商品名称',
     product_picture text not null comment '如果上传了图片，则使用；如果没传，则默认',
-    product_des varchar(512) comment '商品介绍',
+    product_des varchar(1000) comment '商品介绍',
     product_price varchar(200) comment '商品价格',
+    product_address varchar(100) comment '商品产地',
     create_time datetime default CURRENT_TIMESTAMP comment '创建时间',
     update_time datetime default CURRENT_TIMESTAMP ON UPDATE current_timestamp comment '修改时间',
     is_delete tinyint default 0 comment '逻辑删除字段：0 未删除，1 删除'

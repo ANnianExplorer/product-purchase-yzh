@@ -3,6 +3,7 @@ package com.yzh.controller;
 
 import com.yzh.annotation.AdminRole;
 import com.yzh.common.CommonResponse;
+import com.yzh.req.assess.DeleteAssessReq;
 import com.yzh.req.assess.QueryAssessReq;
 import com.yzh.req.assess.UpdateAssessReq;
 import com.yzh.req.assess.saveAssessReq;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
 import java.util.List;
 
 /**
@@ -55,10 +57,17 @@ public class AssessController {
     }
 
     @DeleteMapping("delete/{ids}")
-    @ApiOperation("批量删除评价")
+    @ApiOperation("管理员删除评价")
     @AdminRole
     public CommonResponse<String> delete(@PathVariable List<Long> ids){
         assessService.deleteAssess(ids);
+        return CommonResponse.success("删除成功！");
+    }
+
+    @DeleteMapping("/deleteSession")
+    @ApiOperation("用户删除评价")
+    public CommonResponse<String> deleteAssess(@RequestBody @Valid DeleteAssessReq req,HttpSession session){
+        assessService.deleteUserAssess(req,session);
         return CommonResponse.success("删除成功！");
     }
 }
