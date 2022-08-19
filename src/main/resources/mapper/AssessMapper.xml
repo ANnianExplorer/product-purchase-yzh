@@ -2,4 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yzh.mapper.AssessMapper">
 
+    <delete id="deleteUserAssess">
+        delete
+        from product_assess
+        where assess_id = #{assessId};
+    </delete>
 </mapper>

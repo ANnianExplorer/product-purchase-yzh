@@ -2,6 +2,7 @@ package com.yzh.service;
 
 import com.yzh.domain.Assess;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.yzh.req.assess.DeleteAssessReq;
 import com.yzh.req.assess.QueryAssessReq;
 import com.yzh.req.assess.UpdateAssessReq;
 import com.yzh.req.assess.saveAssessReq;
@@ -50,4 +51,12 @@ public interface AssessService extends IService<Assess> {
      * @param ids id
      */
     void deleteAssess(List<Long> ids);
+
+    /**
+     * 删除用户评估
+     *
+     * @param ids     id
+     * @param session 会话
+     */
+    void deleteUserAssess(DeleteAssessReq req, HttpSession session);
 }

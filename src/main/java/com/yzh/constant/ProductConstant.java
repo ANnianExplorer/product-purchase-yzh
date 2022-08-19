@@ -1,7 +1,7 @@
 package com.yzh.constant;
 
 /**
- * 用户常量
+ * 商品常量
  *
  * @author 杨振华
  * @date 2022/08/15

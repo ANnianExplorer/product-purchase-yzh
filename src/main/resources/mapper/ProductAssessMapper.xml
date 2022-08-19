@@ -8,4 +8,10 @@
         where product_id = #{productId}
     </update>
 
+    <delete id="deleteUserAssess">
+        delete
+        from product_assess
+        where assess_id = #{assessId};
+    </delete>
+
 </mapper>

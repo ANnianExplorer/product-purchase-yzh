@@ -18,7 +18,9 @@ public enum BusinessCode {
 
     FILE_ERROR("文件异常"),
 
-    ASSESS_ERROR("评价异常")
+    ASSESS_ERROR("评价异常"),
+
+    PRODUCT_ERROR("商品异常")
 
     ;
 
