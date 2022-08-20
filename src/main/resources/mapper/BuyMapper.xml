@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yzh.mapper.BuyMapper">
+
+    <select id="getBuyUser" resultType="com.yzh.domain.Buy">
+        select *
+        from buy
+        where user_id = #{userId};
+    </select>
+
+    <select id="selectAmount" resultType="int">
+        select buy_amount
+        from buy;
+    </select>
+
+</mapper>

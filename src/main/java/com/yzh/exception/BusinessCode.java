@@ -20,6 +20,8 @@ public enum BusinessCode {
 
     ASSESS_ERROR("评价异常"),
 
+    BUY_ERROR("购买异常"),
+
     PRODUCT_ERROR("商品异常")
 
     ;
