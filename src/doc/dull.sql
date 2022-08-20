@@ -45,3 +45,27 @@ create table product_assess
     update_time datetime default CURRENT_TIMESTAMP ON UPDATE current_timestamp comment '修改时间',
     is_delete tinyint default 0 comment '逻辑删除字段：0 未删除，1 删除'
 )engine = innodb default charset = utf8mb4 comment '商品和评价的中间表';
+
+create table buy
+(
+    buy_id bigint primary key comment '购买id',
+    user_id bigint not null comment '用户id',
+    product_id bigint not null comment '商品id',
+    buy_amount integer default 1 not null comment '购买数量',
+    lump_sum varchar(200) default '0' not null comment '购买金额',
+    user_address varchar(100) comment '用户地址',
+    create_time datetime default CURRENT_TIMESTAMP comment '创建时间',
+    update_time datetime default CURRENT_TIMESTAMP ON UPDATE current_timestamp comment '修改时间',
+    is_delete tinyint default 0 comment '逻辑删除字段：0 未删除，1 删除'
+)engine = innodb default charset = utf8mb4 comment '购买表';
+
+/* todo 想加一个邮箱找回密码
+create table user_email
+(
+    email_id bigint primary key comment '购买id',
+    user_id bigint not null comment '用户id',
+    email   varchar(100) not null comment '邮箱',
+    create_time datetime default CURRENT_TIMESTAMP comment '创建时间',
+    update_time datetime default CURRENT_TIMESTAMP ON UPDATE current_timestamp comment '修改时间',
+    is_delete tinyint default 0 comment '逻辑删除字段：0 未删除，1 删除'
+)engine = innodb default charset = utf8mb4 comment '用户邮箱表';*/
